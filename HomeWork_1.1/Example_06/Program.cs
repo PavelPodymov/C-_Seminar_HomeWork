@@ -4,11 +4,11 @@
 44 5 78 -> 78
 22 3 9 -> 22
 */
+
 Console.Clear();
 Console.WriteLine("Example_06");
 Console.Write("Pleas enter numbers: ");
 string numbers = Console.ReadLine();
-
 
 string[] words = numbers.Split(new char[] {',', ' '}, StringSplitOptions.RemoveEmptyEntries);
 
