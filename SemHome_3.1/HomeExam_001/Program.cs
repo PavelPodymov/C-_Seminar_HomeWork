@@ -13,7 +13,7 @@ int getNumberFromUser(string UserInformation)
     while (result == 0 | Length_number != 5)
     {
         Console.Write(UserInformation);
-        string userLine = Console.ReadLine();
+        var userLine = Console.ReadLine();
         int.TryParse(userLine, out result);
 
         int result_count = new int();
