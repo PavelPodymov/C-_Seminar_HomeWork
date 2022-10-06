@@ -50,21 +50,33 @@ int[] sumElementInArrayEqualNumberFormOtherArray(int[] someArray, int someNumber
     {
         for (int j = 0; j < someArray.Length; j++)
         {
-            if (sumN < someNumber)
+            if (someArray[j] > someNumber) j=j;
+            else if (someArray[j] == someNumber && sumN == 0)
             {
-                for (int i = j; i < someArray.Length; i++)
+                newArray[0] = someNumber;
+                return newArray;
+            }
+            else if (sumN < someNumber)
+            {
+                sumN += someArray[j];
+                newArray[j] = someArray[j];
+                for (int i = 0; i < someArray.Length; i++)
                 {
-                    if (someArray[i] > someNumber) i=i;
-                    else if (someArray[i] == someNumber && sumN == 0)
+                    if (j == i) i=i;
+                    else
                     {
-                        newArray[0] = someNumber;
-                        return newArray;
-                    }
-                    else if (sumN + someArray[i] <= someNumber)
-                    {
-                        sumN += someArray[i];
-                        newArray[i] = someArray[i];
-                        if (sumN == someNumber) return newArray;
+                        if (someArray[i] > someNumber) i=i;
+                        else if (someArray[i] == someNumber && sumN == 0)
+                        {
+                            newArray[0] = someNumber;
+                            return newArray;
+                        }
+                        else if (sumN + someArray[i] <= someNumber)
+                        {
+                            sumN += someArray[i];
+                            newArray[i] = someArray[i];
+                            if (sumN == someNumber) return newArray;
+                        }
                     }
                 }
                 if (sumN < someNumber)
@@ -96,9 +108,12 @@ int[] removeZero(int[] array)
 Console.Clear();
 int lengthArray = checkNumber("Your length of array is: ", true);
 int[] randomArray = randomArray1To9(lengthArray);
+// int[] randomArray = {9, 7, 8, 9, 8};
 Console.WriteLine(String.Join(", ", randomArray));
 
 int userNumber = checkNumber("Your number is: ", true);
+
+// int userNumber = 18;
 
 int[] myArray = sumElementInArrayEqualNumberFormOtherArray(randomArray, userNumber);
 
