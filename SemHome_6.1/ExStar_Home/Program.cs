@@ -50,7 +50,7 @@ int[] sumElementInArrayEqualNumberFormOtherArray(int[] someArray, int someNumber
     {
         for (int j = 0; j < someArray.Length; j++)
         {
-            if (someArray[j] > someNumber) j=j;
+            if (someArray[j] > someNumber) j=j+0;
             else if (someArray[j] == someNumber && sumN == 0)
             {
                 newArray[0] = someNumber;
@@ -62,10 +62,10 @@ int[] sumElementInArrayEqualNumberFormOtherArray(int[] someArray, int someNumber
                 newArray[j] = someArray[j];
                 for (int i = 0; i < someArray.Length; i++)
                 {
-                    if (j == i) i=i;
+                    if (j == i) i = i+0;
                     else
                     {
-                        if (someArray[i] > someNumber) i=i;
+                        if (someArray[i] > someNumber) i = i+0;
                         else if (someArray[i] == someNumber && sumN == 0)
                         {
                             newArray[0] = someNumber;
@@ -83,7 +83,7 @@ int[] sumElementInArrayEqualNumberFormOtherArray(int[] someArray, int someNumber
                 {
                     sumN=0;
                     newArray = new int[someArray.Length];
-                    j=j;
+                    j=j+0;
                 }
             }
         }

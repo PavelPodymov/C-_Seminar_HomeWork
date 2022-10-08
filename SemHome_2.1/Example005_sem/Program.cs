@@ -9,11 +9,13 @@
 
 Console.Clear();
 Console.Write("First number: ");
-string first_number = Console.ReadLine();
-int num1 = int.Parse(first_number);
+string firstNumber = Console.ReadLine();
+Console.WriteLine();
+
+int num1 = int.Parse(firstNumber);
 Console.Write("Second number: ");
-string second_number = Console.ReadLine();
-int num2 = int.Parse(second_number);
+string secondNumber = Console.ReadLine();
+int num2 = int.Parse(secondNumber);
 
 void square_each_other(int some_num1, int some_num2)
 {
