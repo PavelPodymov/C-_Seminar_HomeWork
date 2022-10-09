@@ -73,14 +73,21 @@ double[,] FillMatrix(double[,] SomeMatrix, int start, int end)
 
 void averageSumOfEachColum(double[,] matrix)
 {
-    double[] averageSum = new double[matrix.GetLength(1)];
+    double[] Sum = new double[matrix.GetLength(1)];
     for (int row = 0; row < matrix.GetLength(0); row++)
     {
         for (int column = 0; column < matrix.GetLength(1); column++)
         {
-            averageSum[column] += Math.Round((matrix[row, column]/matrix.GetLength(0)), 1);
+            Sum[column] += matrix[row, column];
         }
     }
+
+    double[] averageSum = new double[Sum.Length];
+    for (int i = 0; i < Sum.Length; i++)
+    {
+        averageSum[i] = Math.Round(Sum[i]/matrix.GetLength(0), 1);
+    }
+
     for (int i = 0; i < averageSum.Length; i++)
     {
         Console.WriteLine($" column [{i}] the average sum is: [{averageSum[i]:F1}]");
