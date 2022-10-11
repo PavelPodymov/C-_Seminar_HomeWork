@@ -88,6 +88,16 @@ double[,] ChangeFirstRowToLastRow(double[,] SomeMatrix)
     return SomeMatrix;
 }
 
+double[,] ChangeRowAndColumn(double[,] SomeMatrix, int row1, int row2)
+{
+    for (int column = 0; column < SomeMatrix.GetLength(1); column++)
+    {
+        double someNumber = SomeMatrix[row1, column];
+        SomeMatrix[row1, column] = SomeMatrix[row2, column];
+        SomeMatrix[row2, column] = someNumber;
+    }
+    return SomeMatrix;
+}
 
 Console.Clear();
 int NumberOfRows = checkNumber("Please input a number of rows: ", true);
@@ -108,4 +118,10 @@ Console.WriteLine();
 Console.WriteLine("Your new matrix: ");
 double[,] MyNewMatrix = (double[,])MyMatrix.Clone();
 ChangeFirstRowToLastRow(MyNewMatrix);
+PrintMatrix(MyNewMatrix);
+
+
+Console.WriteLine();
+Console.WriteLine("Your next matrix: ");
+ChangeRowAndColumn(MyNewMatrix, 1, MyNewMatrix.GetLength(0)-1);
 PrintMatrix(MyNewMatrix);
